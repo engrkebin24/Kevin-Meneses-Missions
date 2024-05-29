@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Mangan Tayon!</title>
+     <style>
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #e3d08e;
+}
+
+/* Header */
+header {
+    font-family: "Abril Fatface", serif;
+    font-size: 34px;
+    padding: 15px;
+    text-align: right;
+    background: #f1c131;
+    color: #4b5822;
+}
+
+/* Nav Bar */
+nav {
+    display: flex;
+    justify-content: right;
+    flex-flow: row wrap;
+    background-color: #e3d08e;
+    width: 100%;
+}
+
+/* Nav Bar links */
+nav a {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #bc642c;
+    padding: 14px 42px 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Nav Bar links hover */
+nav a:hover {
+    background-color: #bc642c;
+    border-radius: 25px;
+    color: #e3d08e;
+    cursor: pointer;
+}
+
+/* Main Content Section */
+main {
+    display: flex;
+    flex-grow: 1;
+    overflow: 1;
+}
+
+.recipe {
+    display: flex;
+    flex: 0 0 70%;
+    flex-flow: row wrap;
+    background-color: #97b168;
+    border-radius: 5px;
+    align-items: center;
+    margin: 15px;
+}
+
+/* Recipe Image & Name */
+.recipe-graphics {
+    flex: 0 0 45%;
+    margin: 10px;
+    width: fit-content;
+    justify-items: center;
+    position: relative;
+}
+
+.recipe-graphics .image {
+    width: 100%;
+    border: #4b5822;
+    border-style: groove;
+    border-radius: 5px;
+    opacity: 1;
+    display: block;
+    transition: 0.3s ease;
+    backface-visibility: hidden;
+}
+
+/* Image Description on Hover */
+.recipe-graphics .description {
+    width: 100%;
+    height: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe-graphics:hover .image {
+    opacity: 0.3;
+    filter: drop-shadow(8px 8px 10px #4c2223);
+}
+
+.recipe-graphics:hover .description {
+    opacity: 1;
+}
+
+.recipe-graphics .text {
+    color: #4c2223;
+    font-family: "Pacifico", cursive;
+    font-size: 55px;
+    padding: 16px 32px;
+}
+
+h1 {
+    width: auto;
+    font-family: "Courgette", cursive;
+    font-stretch: expanded;
+    font-weight: 900;
+    font-size: 32px;
+    color: #4c2223;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+/* Recipe Ingredients & Steps */
+.recipe-details {
+    flex: 0 0 50%;
+    color: #171711;
+    height: auto;
+    padding: 15px;
+}
+
+h3 {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 22px;
+}
+
+.recipe-ingredients-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    padding: 5px;
+}
+
+.recipe-ingredients-list li {
+    width: 50%;
+    font-family: "Karla", sans-serif;
+    font-size: 18px;
+    padding: 5px;
+    list-style-type: "\1F944";
+}
+
+ol {
+    font-size: 18px;
+    font-family: "Karla", sans-serif;
+     margin: 15px;
+    padding: 5px;
+}
+
+/* Sidebar and Transition */
+.sidebar {
+    font-family: "Courgette", cursive;
+    font-size: 18px;
+    color: #4c2223;
+    text-align: center;
+    background-color: #97b168;
+    border-radius: 5px;
+    overflow: auto;
+    margin: 15px 15px 15px 0px;
+    padding: 15px 1px 15px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; color: #97b168; }
+    30% { opacity: 1; color:#e3d08e;}
+    60% { opacity: 1; color: #bc642c; }
+    100% { opacity: 1; }
+}
+
+.fadeIn {
+    animation: fadeIn 8s;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    background-color: #e3d08e;
+    color: #bc642c;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.mainfooter {
+    flex: 0.55;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.author {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+}
+
+/* Social Media Links and Icons */
+.social-icons a {
+    color: #bc642c;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.social-icons a:hover {
+    animation: blink 1s linear infinite;
+}
+
+.social-icons {
+    font-size: 32px;
+    align-items: left;
+}
+
+.credits {
+    text-align: center;
+    font-family: "Karla", sans-serif;
+    font-size: 12px;
+    color: #bc642c;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.credits a {
+    color: #bc642c;
+}
+
+/* Contact Form */
+.contact {
+    flex: 0.45;
+    font-family: "Karla", sans-serif;
+    color: #bc642c;
+}
+
+fieldset {
+    border: 2px solid #bc642c;
+}
+
+legend {
+    font-size: 20px;
+    text-align: center;
+}
+
+input {
+    width: calc(95% - 12px);
+}
+
+label {
+    font-family: "Karla", sans-serif;
+    margin-left: 5px;
+    }
+
+.contact-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-details div {
+    flex-basis: 45%;
+}
+
+input[type=text], input[type=email] {
+    padding: 5px;
+    margin: 8px;
+    border: 1px solid #be7344;
+    border-radius: 3px;
+    background-color: #f8eae1;
+}
+
+textarea {
+    width: 80%;
+    height: 80%;
+    border: solid 1px #be7344;
+    background-color: #f8eae1;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    }
+
+.contact-message {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#message {
+    padding-top: 3px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    background-color: #bc642c;
+    color: #f1c131;
+    margin-bottom: 5px;
+    padding: 5px 10px; 
+}
+
+    </style>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dosis:wght@200..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>Mangan Tayon!</header>
+
+    <nav class="navbar">
+        <a href="https://en.wikipedia.org/wiki/Filipino_cuisine#:~:text=The%20dishes%20associated%20with%20these,the%20cultures%20of%20the%20archipelago%2C" target="_blank">What is Filipino Cuisine?</a>
+        <a href="https://www.yummy.ph/recipe" target="_blank">Who's Hungry for More?</a>
+        <a href="https://www.tripadvisor.com/Restaurants-g1811027-c10636-Auckland_North_Island.html" target="_blank">Where to Eat Filipino in Auckland?</a>
+    </nav>
+
+    <main>
+        <div class="recipe">
+
+            <!-- Recipe Image & Name -->
+            <div class="recipe-graphics">
+                <img src="https://i.postimg.cc/Z5bXZGxR/8c3d365b1e6b7dea3f410d1b49ca368c-Supreme-Chicken-Pork-Adobo-708-600.jpg" alt="Chicken Pork Adobo" class="image" >
+                <h1>Chicken Pork Adobo</h1>
+           
+                <!-- Image Description on Hover -->    
+                <div class="description">
+                    <div class="text">Hearty, Tangy, and Savoury</div>
+                </div>
+            </div>
+
+            <!-- Recipe Ingredients & Steps -->
+            <div class="recipe-details">
+                <div class="recipe-ingredients">
+                    <h3>Ingredients</h3>
+                    <ul class="recipe-ingredients-list">
+                        <li>0.5 kg - Chicken Parts</li>
+                        <li>0.5 kg - Pork Belly</li>
+                        <li>1 head - Garlic</li>
+                        <li>0.5 cup - Soy Sauce</li>
+                        <li>6 tbsp - White Vinegar</li>
+                        <li>1 cup - Water</li>
+                        <li>2 tsp - Whole Black Peppercorn</li>
+                        <li>2 pcs - Bay Leaf</li>
+                        <li>1 tbsp - Vegetable Oil</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps</h3>
+                    <ol>
+                        <li>Combine pork, soy sauce, garlic, vinegar, water, peppercorn and bay leaf in a pot. Cover and simmer for 45 minutes. Strain pork and set aside.</li>
+                        <br/>
+                        <li>Sauté pork and garlic in oil until light golden brown. Pour cooking liquid and simmer until sauce is thick and coating the pork.</li>
+                        <br/>
+                        <li>Transfer on a serving plate and serve.</li>
+                    </ol>
+                </div>
+
+            </div> 
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <p class="fadeIn">Adobo, celebrated as the Philippines’ culinary gem, encapsulates the nation’s diverse heritage.  </br> 
+            </br>This robust stew, often featuring chicken and pork, marinates in a blend of vinegar and soy sauce, a harmonious fusion of Spanish, Chinese, Malay, and indigenous influences.</br> 
+            </br>Spanning 7,641 islands, Filipino cuisine weaves a vibrant tapestry of flavors, with each region adding its unique twist to shared recipes. From Luzon’s zesty adobo to Mindanao’s fiery renditions, every variation of this expansive culinary tradition beckons with irresistible allure—a delicious tribute to the country’s gastronomic richness.</br>
+            </br>Filipino adobo is hearty, tangy, and savoury. It’s a dish that warms the soul and tantalides the taste buds. Traditionally, it’s served during family gatherings, celebrations, and special occasions. Whether enjoyed with steamed rice or as a filling for sandwiches, adobo is a beloved comfort food that brings people together.</p>
+        </div>
+        
+
+    </main>
+
+    <footer>
+
+        <div class="mainfooter">
+            <div class="author">
+            <p>Created by Kevin M. &copy; 2024</p><br>
+            <p>Follow the foodie journey online!</p>
+
+        <!-- Social Media Links and Icons -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/kpmeneses/" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://twitter.com/EngrKebin" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+                <a href="https://www.instagram.com/engrkebin/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+            </div>
+        </div>
+        <div class="credits">
+        <p>The image and recipe featured here are sourced from <a href="https://www.maggi.ph/">Maggi Philippines.</a> All rights belong to the respective owner.</p>
+        </div>
+    </div>
+        
+        <div class="contact">
+            <form action="mailto:kevz_limited@yahoo.com" method="POST">
+                <fieldset>
+                    <legend>Serve Up Your Thoughts!</legend>
+                    <div class="contact-details">
+                        <label for="name">Name:</label><br>
+                        <input required placeholder="First Name" type="text" name="name"/><br>
+                        <label for="email">Email:</label><br>
+                        <input required placeholder="Email Address" type="email" name="email"/><br>
+                    </div>
+                    <div class="contact-message"> 
+                        <!-- Message -->
+                        <label for="message">Message:</label><br> 
+                        <textarea id="message" required placeholder=" Whisk in your words here..." type="text" name="message"></textarea>
+                        <button type="submit">Submit</button>    
+                    </div>         
+                </fieldset>
+            </form>
+        </div>
+
+    </footer>
+
+</body>
+</html>
