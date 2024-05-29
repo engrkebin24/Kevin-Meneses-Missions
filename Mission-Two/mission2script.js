@@ -5,6 +5,8 @@ const textOverImage = document.getElementById('recipeImageDescriptor')
 const serveCounter = document.getElementById("serveCount");
 const serveLimitMessageDisplay = document.getElementById("serveLimitMessage")
 
+// Event listeners for the recipe image
+
 recipeGraphicsContainer.addEventListener('mouseenter', function(e) {
     recipeImage.style.opacity = '0.5';
     textOverImage.style.visibility = 'visible';
@@ -15,6 +17,7 @@ recipeGraphicsContainer.addEventListener('mouseleave', function(e) {
     textOverImage.style.visibility = 'hidden';
 });
 
+// Initialise the conversion factors
 let conversionFactors = [];
 
 for (let i = 1; i <= 9; i++) {
@@ -22,6 +25,7 @@ for (let i = 1; i <= 9; i++) {
     conversionFactors.push(quantity / 6);
 }
 
+// Update the quantities when the serve count changes
 function updateQuantities() {
     for (let i = 1; i <= 9; i++) {
         const quantity = (conversionFactors[i - 1] * serveCount).toFixed(2);
@@ -29,6 +33,7 @@ function updateQuantities() {
     }
 }
 
+// Serve count functionality
 let serveCount = 6;
 function countMore() {
     if (serveCount < 10) {
