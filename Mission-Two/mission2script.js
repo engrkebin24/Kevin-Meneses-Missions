@@ -1,17 +1,17 @@
-const recipeGraphics = document.getElementById('recipeGraphics');
-const photoHover = document.getElementById('recipe-Image')
+const recipeGraphicsContainer = document.getElementById('recipeGraphics');
+const recipeImage = document.getElementById('recipe-Image')
 const textOverImage = document.getElementById('recipeImageDescriptor')
 
 const serveCounter = document.getElementById("serveCount");
 const serveLimitMessageDisplay = document.getElementById("serveLimitMessage")
 
-recipeGraphics.addEventListener('mouseenter', function(e) {
-    photoHover.style.opacity = '0.5';
+recipeGraphicsContainer.addEventListener('mouseenter', function(e) {
+    recipeImage.style.opacity = '0.5';
     textOverImage.style.visibility = 'visible';
 });
   
-recipeGraphics.addEventListener('mouseleave', function(e) {
-    photoHover.style.opacity = '1';
+recipeGraphicsContainer.addEventListener('mouseleave', function(e) {
+    recipeImage.style.opacity = '1';
     textOverImage.style.visibility = 'hidden';
 });
 
