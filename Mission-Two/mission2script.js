@@ -7,12 +7,12 @@ const serveLimitMessageDisplay = document.getElementById("serveLimitMessage")
 
 // Event listeners for the recipe image
 
-recipeGraphicsContainer.addEventListener('mouseenter', function(e) {
+recipeGraphicsContainer.addEventListener('mouseenter', function() {
     recipeImage.style.opacity = '0.5';
     textOverImage.style.visibility = 'visible';
 });
   
-recipeGraphicsContainer.addEventListener('mouseleave', function(e) {
+recipeGraphicsContainer.addEventListener('mouseleave', function() {
     recipeImage.style.opacity = '1';
     textOverImage.style.visibility = 'hidden';
 });
